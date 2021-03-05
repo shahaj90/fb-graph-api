@@ -12,16 +12,15 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, "url={$imagePath}&published=true&access_tok
 $headers = [];
 $headers[] = 'Content-Type: application/x-www-form-urlencoded';
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-$result = curl_exec($ch);
-
-//Error
-if (curl_errno($ch)) {
-    header("Location: {$appUrl}/error.php");
-}
-
-//Close curl
+$result = json_decode(curl_exec($ch), true);
 curl_close($ch);
 
+//Error
+if (!empty($result['error']['message'])) {
+    header("Location: {$appUrl}error.php?msg={$result['error']['message']}");
+    exit;
+}
+
 //Success
-header("Location: {$appUrl}/success.php");
-exit();
+header("Location: {$appUrl}success.php");
+exit;

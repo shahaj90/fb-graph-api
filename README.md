@@ -1,4 +1,4 @@
-## About Php script
+## About php script
 
 You can publish facebook post image by this script.
 

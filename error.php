@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Post Published!</title>
+    <title>Post Failed!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -15,7 +15,7 @@
 
     <div class="container mt-3">
         <div class="alert alert-danger alert-dismissible">
-            <strong>Error!</strong> Post published failed.
+            <?php echo $_GET['msg'] ?>
         </div>
         <div>
             <a href="index.php" class="btn btn-info" role="button">
